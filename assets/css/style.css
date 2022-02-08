@@ -1,0 +1,8 @@
+.delete{
+    text-align: center;
+    align-items: center;
+}
+
+.delete i{
+    cursor: pointer;
+}
