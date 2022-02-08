@@ -27,15 +27,16 @@ function getProductList(list) {
 
 let deleteBtn = document.querySelectorAll(".delete i");
 
-
-
 for (const item of deleteBtn) {
     item.addEventListener("click",function (e) {
         e.target.parentNode.parentNode.remove();
         let id = e.target.parentNode.parentNode.getAttribute("data-id");
         let productIndex = products.findIndex(m => m.id == id);
-        console.log(productIndex);
-        products.splice(productIndex,productIndex+1);
+        if (productIndex == 0) {
+            products.splice(0,1);
+        }else{
+            products.splice(productIndex,productIndex);
+        }
         localStorage.setItem("products", JSON.stringify(products));
     })
 }
