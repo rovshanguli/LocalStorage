@@ -32,14 +32,9 @@ for (const item of deleteBtn) {
         e.target.parentNode.parentNode.remove();
         let id = e.target.parentNode.parentNode.getAttribute("data-id");
         let productIndex = products.findIndex(m => m.id == id);
-        if (productIndex == 0) {
-            products.splice(0,1);
-        }else{
-            products.splice(productIndex,productIndex);
-        }
+            products.splice(productIndex,1);
         localStorage.setItem("products", JSON.stringify(products));
+        countElem.innerText = getProductCount(products);
     })
 }
-
-
 countElem.innerText = getProductCount(products);
